@@ -11,34 +11,56 @@
     padding: 0;
 }
 
+/* Use a more predictable box model */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #f0eded;
 
 }
 
 .myinfo {
-    width: 70%;
+    max-width: 1200px;
+    width: 100%;
     /* border: 3px solid black; */
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    gap: 1rem;
     margin: 20px auto;
 }
 
 #brief {
     margin: 10px;
-    width: 40%;
+    flex: 1 1 320px; /* allow brief to grow/shrink responsively */
+    width: auto;
     word-spacing: 2px;
 }
 
 #profileimg {
-    height: 60vh;
-    background-size: cover;
+    /* Use a fluid, clamped size so the image scales across viewports
+       Keep a square aspect so rounded-circle stays circular */
+    width: clamp(120px, 35vw, 320px);
+    height: clamp(120px, 35vw, 320px);
+    max-width: 100%;
+    object-fit: cover; /* crop to fill the square without distortion */
     border-radius: 50%;
+    display: block;
+}
+/* Ensure all images are responsive by default */
+img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
 }
 /* Sections Styling */
 section {
     padding: 80px 0;
+    margin: 5px;
+    border-radius: 15px;
 }
 
 .about-section,
@@ -93,5 +115,34 @@ section {
 
     #brief p {
         font-size: 1rem;
+    }
+}
+
+/* Additional responsiveness tweaks */
+@media (max-width: 992px) {
+    /* Reduce large section paddings on medium / small screens */
+    section {
+        padding: 40px 0;
+    }
+
+    /* Ensure the profile column centers well and text stacks nicely */
+    .row.align-items-center {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Slightly smaller headings on very small devices */
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    /* Make contact items more compact */
+    .contact-item {
+        padding: 12px;
     }
 }
