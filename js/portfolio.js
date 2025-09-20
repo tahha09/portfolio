@@ -1,1 +1,1 @@
-alert("hello from portfolio.js");
+// alert("hello from portfolio.js");

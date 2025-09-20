@@ -1,5 +1,45 @@
-h1{
-    color: red;
-    font-size:30 px
+* {
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    background-color: #f0eded;
+
+}
+
+.myinfo {
+    width: 70%;
+    /* border: 3px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 20px auto;
+}
+
+#brief {
+    margin: 10px;
+    width: 40%;
+    word-spacing: 2px;
+}
+
+#profileimg {
+    height: 60vh;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+/* Small devices adjustments */
+@media (max-width: 768px) {
+    #brief h1 {
+        font-size: 1.8rem;
+    }
+
+    #brief h3 {
+        font-size: 1.3rem;
+    }
+
+    #brief p {
+        font-size: 1rem;
+    }
 }
